@@ -1,12 +1,13 @@
 ---
 layout: post
-cover: false
-title: Github Page and jekyll
+cover: 'assets/images/cover1.jpg'
+title: Github Page的初体验
 date: 2017-02-26 20:55:00
 navigation: True
 tags: inCode
 subclass: 'post tag-inCode'
 categories: 'Bucuss'
+logo: 'assets/images/ghost.png'
 ---
 
 * 在经历了超长时间的拖延后，这个星期终于把这个github page给部署好了。弄这个 blog 的初衷是学习一下 git 和 github 的用法以及顺手发一些拙劣的文章 >3< .趁今天刚刚部署好对一些奇奇怪怪的问题还比较深刻，赶紧记一波笔记。
