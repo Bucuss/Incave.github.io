@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>github.com/Bucuss</title>
+   
+   <link>https://github.com/Bucuss</link>
+   <description>记录文字 ，分享生活</description>
+   <language>en-uk</language>
+   <managingEditor> BeiMing</managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Github page and Quenl</title>
+	  <link>/Incave.github.io//github-page-and-quenl</link>
+	  <author>BeiMing</author>
+	  <pubDate>2017-02-27T07:48:52+00:00</pubDate>
+	  <guid>/Incave.github.io//github-page-and-quenl</guid>
+	  <description><![CDATA[
+	     <p>An American businessman took a vacation to a small coastal Mexican village on doctor’s orders. Unable to sleep after an urgent phone call from the office the first morning, he walked out to the pier to clear his head. A small boat with just one fisherman had docked, and inside the boat were several large yellowfin tuna. The American complimented the Mexican on the quality of his fish.</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
