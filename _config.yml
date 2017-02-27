@@ -1,6 +1,7 @@
 # Jykell configuration
 #markdown: redcarpet
 #highlighter: pygments
+excerpt_separator: "<!-- excerpt -->"
 markdown: kramdown
 highlighter: rouge
 paginate: 5
