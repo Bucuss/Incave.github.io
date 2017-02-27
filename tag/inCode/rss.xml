@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>github.com/Bucuss</title>
+   
+   <link>https://github.com/Bucuss</link>
+   <description>记录文字 ，分享生活</description>
+   <language>en-uk</language>
+   <managingEditor> BeiMing</managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Github Page Begin</title>
+	  <link>/Incave.github.io//github-page-and-jekyll</link>
+	  <author>BeiMing</author>
+	  <pubDate>2017-02-27T04:55:00+08:00</pubDate>
+	  <guid>/Incave.github.io//github-page-and-jekyll</guid>
+	  <description><![CDATA[
+	     <hr />
+
+<h3 id="section">懒癌晚期</h3>
+
+<p>在经历了超长时间的拖延后，这个星期终于把这个 <em>github page</em> 给部署好了。弄这个 <em>Blog</em> 的初衷是学习一下 <em>git</em> 和 <em>github</em> 的用法以及顺手发一些拙劣的文章 &gt;3&lt; ,趁今天刚刚部署好对一些奇奇怪怪的问题还比较深刻，赶紧记一波笔记。</p>
+
+<p>要利用 <em>github</em> 来搭建一个 <em>Blog</em> 需要先了解一下 <em>git</em> ，<em>github</em> 还有一些 <em>jekyll</em> 的知识。对于git的知识可以从<a href="https://git-scm.com/book/zh/v2">Git</a>这里学习，是很值得去反复学习的官方文档.jekyll的资料可以在<a href="http://jekyllcn.com/docs/home/">jekyllcn</a>了解.github的使用就可以在实战中慢慢学会。这次 <em>Blog</em> 的搭建是基于 <em>github</em> 的 <em>github page</em> 功能。在<a href="https://pages.github.com/">Github-page</a>有简单的入门使用方法，但我要弄一个比较符合我审美的 <em>Blog</em> 。所以依靠强大的搜索引擎慢慢摸索.了解到可以利用模板来制作自己的页面。对于对 <em>Ruby</em> 还一脸懵逼的我来说，这是个捷径。</p>
+
+<h3 id="section-1">大麻烦</h3>
+
+<p>本以为省去了繁杂的基础代码的 <em>coding</em> 会很快搞定，但是配置文件的设置纠结了我好久。主要是这3个：</p>
+
+<blockquote>
+  <ul>
+    <li>_config.yml</li>
+    <li>RakeFile</li>
+    <li>.travis.yml</li>
+  </ul>
+</blockquote>
+
+<hr />
+
+<ul>
+  <li>
+    <p>第一个大头 <em>_config.yml</em> 是jekyll的主要配置文件，网站的名字和html文件里的一些引用的预设置都在这个文件。</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  # Website info
+
+  name: '栗'
+  description: "记录文字 ，分享生活"
+
+  # edit baseurl to simply '/' if using as your personal page
+  # (instead of a project page)
+
+  baseurl: /Incave.github.io/
+
+  # Settings for deploy rake task
+  # Username and repo of Github repo, e.g.
+  # https://github.com/USERNAME/REPO.git
+  # username defaults to ENV['GIT_NAME'] used by Travis
+  # repo defaults to USERNAME.github.io
+  # Branch defaults to "source" for USERNAME.github.io
+  # or "master" otherwise
+
+  username: Bucuss
+  repo: Incave.github.io
+  branch: master
+  relative_source: ../Incave.github.io/
+  destination: ../Incave.github.io-page/
+</code></pre>
+    </div>
+
+    <p>以上是本 <em>Blog</em> 的一些设置，其中 <em>baseurl</em> 在本地预览时可以使用’/’但是部署在 <em>github</em>  上就会出错，得设置成项目名的目录下。<em>username</em> 和 <em>repo</em> 的设置是以后通过 <em>travis ic</em> 来 <em>build</em> 是要使用的，<em>repo</em> 是项目名（ 一开始不懂瞎 <em>JB</em> 起名 <em>TAT</em> ）。</p>
+  </li>
+  <li>
+    <p>第二个 <em>Rakefile</em> 其实下载好模板后使用不用修改，只是我在还没弄明白 <em>Rake</em> 是干嘛的时在哪里瞎操作（蠢哭）。
+我的理解是 <em>rakefile</em> 相当于 <em>travis</em> 在 <em>build</em> 时执行的脚本。</p>
+  </li>
+  <li>
+    <p>第三个 <em>.travis.yml</em> 花了我的时间最长（明明是最少的一个文件，我愣是搞了一下午）。由于 <em>github page</em> 不支持这个模板的 <em>jekyll</em> 插件，显示不了 <em>tag</em> 的页面，一直 404。寻求原作者的<a href="https://github.com/biomadeira/jasper">文档</a>得知可以通过第三方的 <em>travis_ic</em> 来 <em>build</em> 好页面再重新 <em>push</em> 到 <em>gh-pages</em> 分支上，在分支上部署 <em>github page</em> ，这样就可以曲线救国。</p>
+
+    <p>其实还有折中的办法就是每次 <em>push</em> 本地 <em>build</em> 好的页面( <em>XX-page</em> )到 <em>github</em> 上，不过比较麻烦。(注意：新建分支时 <em>gh-pages</em> 的 <em>s</em> 不要少了，不要问我为什么知道 QAQ )</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  # Generate your secure token with the travis gem
+  # get Github token from your Travis CI profile page
+  # gem install travis
+  # GH_TOKEN from https://github.com/settings/tokens
+  # travis encrypt
+  # GIT_NAME="USERNAME" GIT_EMAIL="EMAIL" GH_TOKEN="TOKEN"
+
+
+  env:
+    	global:
+      	secure: XXX...
+  branches:
+    	only:
+      - master
+</code></pre>
+    </div>
+
+    <p>首先要在<a href="https://github.com/settings/tokens">github_setting</a>设置自己的 <em>token</em> (类似密钥),生成的 <em>token</em> 只有第一次可以看到，需要的话要记下来。然后安装好 <em>travis</em> 使用 <em>travis</em> 的命令设置 <em>GIT_NAME</em> , <em>GIT_EMAIL</em> , <em>GH_TOKEN</em> 这3个参数，<em>secure key</em> 是获得的 <em>token</em> 在 <em>travis</em> 加密生成的 <em>key</em> 。</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  # 安装 Travis CI 命令行工具
+  $gem install travis
+
+  #设置参数
+  $travis env set [argname] [value]
+
+  $travis env set GIT_NAME bucuss
+  ...
+
+  #加密获得密钥
+  $travis encrypt GH_TOKEN=YOUR_TOKEN
+</code></pre>
+    </div>
+
+    <p>一开始在原作者的文档的指导下理解不能，不知道得自己在 <em>github</em> 上设置自己的 <em>token</em> ，后来在<a href="http://notes.iissnan.com/2016/publishing-github-pages-with-travis-ci/">使用 Travis CI 自动更新 GitHub Pages</a> 这里比较清晰的了解了过程。(毕竟英语苦手，还是得多学习)，一切设置好后可以在自己的 <em>Travis</em> 里 <em>build</em> 一下，成功则是绿色的 <em>pass</em> ，页面就应该 <em>ok</em> 了。</p>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="section-2">后记</h3>
+
+<p>这里还有一些不解，就是 <em>Travis</em> 提供的 <em>token</em> 在哪里使用，一开始误以为是这个 <em>token</em>，结果一直 <em>build</em> 失败，以后再在好好查查。墙内环境的影响，导致 <em>github</em> 的 <em>push</em> 和 <em>pull</em> 都极其缓慢，这里可以通过更改 <em>host</em> 缓解：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	151.101.72.249 global-ssl.fastly.Net
+	192.30.253.112 github.com
+</code></pre>
+</div>
+
+<blockquote>
+  <p>上記の</p>
+</blockquote>
+
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
