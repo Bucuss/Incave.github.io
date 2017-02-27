@@ -8,6 +8,7 @@ tags: inCode
 subclass: 'post tag-inCode'
 categories: 'Bucuss'
 logo: 'assets/images/ghost.png'
+excerpt: Github的初体验
 ---
 
 ---
